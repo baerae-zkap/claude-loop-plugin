@@ -1,15 +1,24 @@
 {
-  "name": "claude-loop-plugin",
-  "displayName": "Claude Loop",
-  "description": "Usage limit auto-retry wrapper for Claude Code",
-  "version": "1.0.0",
-  "author": "baerae-zkap",
-  "repository": "https://github.com/baerae-zkap/claude-loop-plugin",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-loop",
+  "description": "Usage limit auto-retry wrapper for Claude Code - automatically resumes when hitting usage limits",
+  "owner": {
+    "name": "baerae-zkap",
+    "email": "contact@baerae.com"
+  },
   "plugins": [
     {
       "name": "claude-loop",
-      "path": ".",
-      "description": "Install claude-loop script for automatic usage limit retry"
+      "description": "Install claude-loop script for automatic usage limit retry",
+      "version": "1.0.0",
+      "author": {
+        "name": "baerae-zkap",
+        "email": "contact@baerae.com"
+      },
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://github.com/baerae-zkap/claude-loop-plugin",
+      "tags": ["usage-limit", "retry", "automation", "session-resume"]
     }
   ]
 }
