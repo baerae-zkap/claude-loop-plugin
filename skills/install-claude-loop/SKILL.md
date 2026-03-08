@@ -1,15 +1,15 @@
 ---
 name: install-claude-loop
-description: Install claude-loop script for automatic rate limit retry
+description: Install claude-loop script for automatic usage limit retry
 ---
 
 # Install Claude Loop
 
-Installs the `claude-loop` command - a wrapper that automatically retries when Claude Code hits rate limits.
+Installs the `claude-loop` command - a wrapper that automatically retries when Claude Code hits usage limits.
 
 ## Features
 
-- Automatic session resume when rate limited
+- Automatic session resume when usage limited
 - Configurable retry delay and max retries
 - JSON output parsing for accurate limit detection
 - Countdown timer during wait periods

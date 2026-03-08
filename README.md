@@ -1,14 +1,14 @@
 # Claude Loop
 
-Rate limit에 걸려도 자동으로 재시도하는 Claude Code 래퍼 스크립트.
+Usage limit에 걸려도 자동으로 재시도하는 Claude Code 래퍼 스크립트.
 
 ## 이게 뭔가요?
 
 `claude-loop`은 **독립적인 쉘 스크립트**입니다. Claude Code 내부에서 실행되는 게 아니라, **터미널에서 Claude Code를 감싸서 실행**합니다.
 
 ```
-일반적인 사용:        claude "프롬프트"           → rate limit 걸리면 끝
-claude-loop 사용:     claude-loop "프롬프트"     → rate limit 걸리면 대기 후 자동 재개
+일반적인 사용:        claude "프롬프트"           → usage limit 걸리면 끝
+claude-loop 사용:     claude-loop "프롬프트"     → usage limit 걸리면 대기 후 자동 재개
 ```
 
 ## 설치
@@ -52,7 +52,7 @@ claude-loop "implement user authentication"
 ```
 1. claude-loop이 claude를 실행
 2. 작업 진행...
-3. Rate limit 감지됨
+3. Usage limit 감지됨
 4. 5분 대기 (카운트다운 표시)
 5. 이전 세션 자동 재개
 6. 작업 계속...
