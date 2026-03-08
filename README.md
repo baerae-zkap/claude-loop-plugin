@@ -1,93 +1,95 @@
+[English](README.md) | [한국어](README.ko.md)
+
 # Claude Loop
 
-Usage limit에 걸려도 자동으로 재시도하는 Claude Code 래퍼 스크립트.
+A wrapper script that automatically retries when Claude Code hits usage limits.
 
-## 이게 뭔가요?
+## What is this?
 
-`claude-loop`은 **독립적인 쉘 스크립트**입니다. Claude Code 내부에서 실행되는 게 아니라, **터미널에서 Claude Code를 감싸서 실행**합니다.
+`claude-loop` is a **standalone shell script**. It doesn't run inside Claude Code — it **wraps Claude Code and runs from your terminal**.
 
 ```
-일반적인 사용:        claude "프롬프트"           → usage limit 걸리면 끝
-claude-loop 사용:     claude-loop "프롬프트"     → usage limit 걸리면 대기 후 자동 재개
+Normal usage:         claude "prompt"           → stops when usage limit hit
+With claude-loop:     claude-loop "prompt"     → waits and auto-resumes
 ```
 
-## 설치
+## Installation
 
-### 방법 1: Claude Code 스킬로 설치 (권장)
+### Option 1: Via Claude Code Skill (Recommended)
 
 ```bash
-# Claude Code 안에서
+# Inside Claude Code
 /plugin marketplace add baerae-zkap/claude-loop-plugin
 /install-claude-loop
 ```
 
-스킬이 하는 일:
-1. `~/.local/bin/claude-loop` 스크립트 생성
-2. PATH에 `~/.local/bin` 추가
+What the skill does:
+1. Creates `~/.local/bin/claude-loop` script
+2. Adds `~/.local/bin` to PATH
 
-### 방법 2: 수동 설치
+### Option 2: Manual Installation
 
 ```bash
-# 스크립트 다운로드
+# Download script
 mkdir -p ~/.local/bin
 curl -o ~/.local/bin/claude-loop https://raw.githubusercontent.com/baerae-zkap/claude-loop-plugin/main/scripts/claude-loop.sh
 chmod +x ~/.local/bin/claude-loop
 
-# PATH 추가 (~/.zshrc 또는 ~/.bashrc)
+# Add to PATH (~/.zshrc or ~/.bashrc)
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-## 사용법
+## Usage
 
-**중요: Claude Code 밖에서, 일반 터미널에서 실행합니다.**
+**Important: Run from terminal, outside of Claude Code.**
 
 ```bash
-# 터미널에서 실행
+# From terminal
 claude-loop "implement user authentication"
 ```
 
-### 동작 방식
+### How it works
 
 ```
-1. claude-loop이 claude를 실행
-2. 작업 진행...
-3. Usage limit 감지됨
-4. 5분 대기 (카운트다운 표시)
-5. 이전 세션 자동 재개
-6. 작업 계속...
-7. 완료될 때까지 반복
+1. claude-loop runs claude
+2. Work in progress...
+3. Usage limit detected
+4. Wait 5 minutes (countdown displayed)
+5. Auto-resume previous session
+6. Continue working...
+7. Repeat until complete
 ```
 
-### 환경 변수
+### Environment Variables
 
 ```bash
-# 재시도 간격 변경 (기본 300초 = 5분)
+# Change retry delay (default 300 seconds = 5 minutes)
 CLAUDE_LOOP_DELAY=180 claude-loop "fix errors"
 
-# 최대 재시도 횟수 (기본 100회)
+# Max retry count (default 100)
 CLAUDE_LOOP_MAX_RETRIES=50 claude-loop "big task"
 
-# 디버그 모드 (JSON 응답 확인)
+# Debug mode (show JSON response)
 CLAUDE_LOOP_DEBUG=1 claude-loop "test"
 ```
 
-## 플러그인 vs 스크립트
+## Plugin vs Script
 
-| 구분 | 설명 |
-|------|------|
-| **플러그인/스킬** | 설치 도우미. Claude Code 안에서 `/install-claude-loop` 실행하면 스크립트를 설치해줌 |
-| **claude-loop 스크립트** | 실제 도구. 터미널에서 `claude-loop "프롬프트"`로 사용 |
+| Component | Description |
+|-----------|-------------|
+| **Plugin/Skill** | Installer helper. Run `/install-claude-loop` inside Claude Code to install the script |
+| **claude-loop script** | The actual tool. Use `claude-loop "prompt"` from terminal |
 
 ```
 ┌─────────────────────────────────────────────────┐
 │  Claude Code                                    │
-│  └─ /install-claude-loop  → 스크립트 설치      │
+│  └─ /install-claude-loop  → installs script    │
 └─────────────────────────────────────────────────┘
-                    ↓ 설치
+                    ↓ install
 ┌─────────────────────────────────────────────────┐
-│  터미널 (Claude Code 밖)                        │
-│  └─ claude-loop "프롬프트" → Claude 실행/재시도 │
+│  Terminal (outside Claude Code)                 │
+│  └─ claude-loop "prompt" → runs Claude w/retry │
 └─────────────────────────────────────────────────┘
 ```
 
