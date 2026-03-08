@@ -2,8 +2,5 @@
   "name": "claude-loop",
   "version": "1.0.0",
   "description": "Usage limit auto-retry wrapper for Claude Code - automatically resumes when hitting usage limits",
-  "author": "kimjunghyun",
-  "repository": "https://github.com/kimjunghyun/claude-loop-plugin",
-  "keywords": ["usage-limit", "retry", "automation", "session-resume"],
-  "skills": ["install-claude-loop"]
+  "skills": "./skills/"
 }
