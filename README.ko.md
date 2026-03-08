@@ -20,6 +20,7 @@ claude-loop 사용:     claude-loop "프롬프트"     → usage limit 걸리면
 ```bash
 # Claude Code 안에서
 /plugin marketplace add baerae-zkap/claude-loop-plugin
+/plugin install claude-loop
 /install-claude-loop
 ```
 

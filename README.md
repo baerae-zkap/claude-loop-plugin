@@ -20,6 +20,7 @@ With claude-loop:     claude-loop "prompt"     → waits and auto-resumes
 ```bash
 # Inside Claude Code
 /plugin marketplace add baerae-zkap/claude-loop-plugin
+/plugin install claude-loop
 /install-claude-loop
 ```
 
