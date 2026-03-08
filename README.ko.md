@@ -21,7 +21,7 @@ claude-loop 사용:     claude-loop "프롬프트"     → usage limit 걸리면
 # Claude Code 안에서
 /plugin marketplace add baerae-zkap/claude-loop-plugin
 /plugin install claude-loop
-/install-claude-loop
+/claude-loop:install
 ```
 
 스킬이 하는 일:
@@ -79,13 +79,13 @@ CLAUDE_LOOP_DEBUG=1 claude-loop "test"
 
 | 구분 | 설명 |
 |------|------|
-| **플러그인/스킬** | 설치 도우미. Claude Code 안에서 `/install-claude-loop` 실행하면 스크립트를 설치해줌 |
+| **플러그인/스킬** | 설치 도우미. Claude Code 안에서 `/claude-loop:install` 실행하면 스크립트를 설치해줌 |
 | **claude-loop 스크립트** | 실제 도구. 터미널에서 `claude-loop "프롬프트"`로 사용 |
 
 ```
 ┌─────────────────────────────────────────────────┐
 │  Claude Code                                    │
-│  └─ /install-claude-loop  → 스크립트 설치      │
+│  └─ /claude-loop:install  → 스크립트 설치      │
 └─────────────────────────────────────────────────┘
                     ↓ 설치
 ┌─────────────────────────────────────────────────┐

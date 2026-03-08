@@ -1,5 +1,5 @@
 ---
-name: install-claude-loop
+name: install
 description: Install claude-loop script for automatic usage limit retry
 ---
 

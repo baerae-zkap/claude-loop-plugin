@@ -21,7 +21,7 @@ With claude-loop:     claude-loop "prompt"     → waits and auto-resumes
 # Inside Claude Code
 /plugin marketplace add baerae-zkap/claude-loop-plugin
 /plugin install claude-loop
-/install-claude-loop
+/claude-loop:install
 ```
 
 What the skill does:
@@ -79,13 +79,13 @@ CLAUDE_LOOP_DEBUG=1 claude-loop "test"
 
 | Component | Description |
 |-----------|-------------|
-| **Plugin/Skill** | Installer helper. Run `/install-claude-loop` inside Claude Code to install the script |
+| **Plugin/Skill** | Installer helper. Run `/claude-loop:install` inside Claude Code to install the script |
 | **claude-loop script** | The actual tool. Use `claude-loop "prompt"` from terminal |
 
 ```
 ┌─────────────────────────────────────────────────┐
 │  Claude Code                                    │
-│  └─ /install-claude-loop  → installs script    │
+│  └─ /claude-loop:install  → installs script    │
 └─────────────────────────────────────────────────┘
                     ↓ install
 ┌─────────────────────────────────────────────────┐
