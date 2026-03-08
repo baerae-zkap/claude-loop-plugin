@@ -1,0 +1,15 @@
+{
+  "name": "claude-loop-plugin",
+  "displayName": "Claude Loop",
+  "description": "Usage limit auto-retry wrapper for Claude Code",
+  "version": "1.0.0",
+  "author": "baerae-zkap",
+  "repository": "https://github.com/baerae-zkap/claude-loop-plugin",
+  "plugins": [
+    {
+      "name": "claude-loop",
+      "path": ".",
+      "description": "Install claude-loop script for automatic usage limit retry"
+    }
+  ]
+}
